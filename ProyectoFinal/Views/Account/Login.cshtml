@@ -1,0 +1,83 @@
+﻿@model ProyectoFinal.Models.LoginModel
+
+@{
+    ViewBag.Title = "Iniciar Sesión";
+}
+<hgroup class="title">
+    @*<img src="~/Images/logo-provisional.png" width="513" height="135" />*@
+    <h2 style="color:#E04006">Sistema Medico Integrado</h2><br />
+    @*<h1>@ViewBag.Title</h1>*@
+</hgroup>
+
+                        <div style="margin-left:360px"><img src="~/Images/heart.png" width="22" height="22" />
+                        <img src="~/Images/virus.png" width="22" height="22" />
+                        <img src="~/Images/blood pressure.png" width="22" height="22" />
+                        <img src="~/Images/iv bag.png" width="22" height="22" />
+                        <img src="~/Images/bone.png" width="22" height="22" />
+                        <img src="~/Images/surgeon.png" width="22" height="22" />
+                        <img src="~/Images/ambulance car.png" width="22" height="22" /><br /></div>
+
+<section id="loginForm">
+@*<h2>Use a local account to log in.</h2>*@
+@using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <img src="~/Images/physician.png" width="128" height="128"/>
+    
+    @Html.Label("Iniciar Sesión")
+        <form action="~/Account/Login" method="post">
+          <input type="text" name="UserName" style="border-color:#E04006" placeholder="Usuario"><br />
+            @Html.ValidationMessageFor(m => m.UserName)
+          <input type="password" name="Password" style="border-color:#E04006" placeholder="Contraseña"><br />
+            @Html.ValidationMessageFor(m => m.Password)
+          <input type="submit" value="Acceder" />
+        </form>
+    
+    @*    
+    <fieldset>
+        <legend>Log in Form</legend>
+        <ol>
+            <ol>
+                <p><b>@Html.Label("Iniciar sesión")</b></p>
+            </ol>
+
+
+            <li>
+                @Html.Label("Usuario")
+                @Html.TextBoxFor(m => m.UserName)
+                @Html.ValidationMessageFor(m => m.UserName)
+            </li>
+            <li>
+                @Html.Label("Contraseña")
+                @Html.PasswordFor(m => m.Password)
+                @Html.ValidationMessageFor(m => m.Password)
+            </li>
+            <li>
+                @Html.CheckBoxFor(m => m.RememberMe)
+                @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
+            </li>
+        </ol>
+        <input type="submit" value="Iniciar sesión" />
+    </fieldset>*@
+    @*
+    <p>
+        @Html.ActionLink("Register", "Register") if you don't have an account.
+    </p>*@
+}
+</section>
+
+@*            <section>
+                
+                <img src="~/Images/logo.jpg" width="295" height="279" />
+
+            </section>*@
+
+@*<section class="social" id="socialLoginForm">
+    <h2>Use another service to log in.</h2>
+    @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
+</section>*@
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

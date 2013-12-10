@@ -1,0 +1,77 @@
+﻿@model IEnumerable<ProyectoFinal.Models.FormVitalSigns>
+
+@{
+    ViewBag.Title = "Historial de Signos Vitales";
+}
+<div id="detailFormName">
+@Html.Label("Historial de Signos Vitales")
+</div>
+@*<p>
+    @Html.ActionLink("Nueva entrada", "Create", "VitalSign")
+</p>*@
+<table>
+    <tr>
+        <th>
+            <img src="~/Images/heart.png" width="18" height="18" />
+        </th>
+        <th>
+            @Html.Label("Creado por")
+        </th>
+        <th>
+            @Html.Label("Fecha")
+        </th>
+        <th>
+            @Html.Label("Peso")
+        </th>
+        <th>
+            @Html.Label("Temperatura")
+        </th>
+        <th>
+            @Html.Label("Pulso")
+        </th>
+        <th>
+            @Html.Label("Presión Sanguinea")
+        </th>
+        <th>
+            @Html.Label("Ritmo Respiratorio")
+        </th>
+        <th>
+            @Html.Label("Dolor")
+        </th>
+        @*<th></th>*@
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("Editar", "Edit", "VitalSign", new { id=item.Id },null) |
+            @Html.ActionLink("Eliminar", "Delete", "VitalSign", new { id=item.Id },null)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreadoPor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fecha)
+        </td>
+        <td>
+           <text>@Html.DisplayFor(modelItem => item.Peso) lb.</text>
+        </td>
+        <td>
+            <text>@Html.DisplayFor(modelItem => item.Temperatura) &deg;C</text>
+        </td>
+        <td>
+            <text>@Html.DisplayFor(modelItem => item.Pulso) bpm</text>
+        </td>
+        <td>
+            <text>@Html.DisplayFor(modelItem => item.PresionSanguinea) mmHg</text>
+        </td>
+        <td>
+            <text>@Html.DisplayFor(modelItem => item.Respiracion) bpm</text>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dolor)
+        </td>        
+    </tr>
+}
+
+</table>

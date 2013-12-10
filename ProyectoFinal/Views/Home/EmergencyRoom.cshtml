@@ -1,0 +1,102 @@
+﻿@model IEnumerable<ProyectoFinal.Models.RootObject>
+
+@{
+    ViewBag.Title = "Sala de Emergencias";
+}
+
+<h2>Sala de Emergencias</h2>
+
+<h3>Pacientes entrantes</h3>
+<div id="detailEmergency">
+<table>
+    <tr>
+        <th>
+            @Html.Label("Fecha")
+        </th>
+        <th>
+            @Html.Label("Paciente")
+        </th>
+        <th>
+            @Html.Label("Responsable")
+        </th>
+        <th>
+            @Html.Label("Edad")
+        </th>
+        <th>
+            @Html.Label("Sexo")
+        </th>
+        <th>
+            @Html.Label("FC")
+        </th>
+        <th>
+            @Html.Label("TA")
+        </th>
+        <th>
+            @Html.Label("Alergias")
+        </th>
+        <th>
+            @Html.Label("Nivel")
+        </th>
+        <th>
+            @Html.Label("Posición")
+        </th>
+    </tr>
+
+@foreach (var item in Model.OrderByDescending(a => a.modeloDatos.id).Take(2)) {
+    <tr>
+        <td>
+            @item.modeloDatos.Fecha.dayOfMonth/@item.modeloDatos.Fecha.month/@item.modeloDatos.Fecha.year @item.modeloDatos.Fecha.hourOfDay:@item.modeloDatos.Fecha.minute:@item.modeloDatos.Fecha.second
+        </td>
+        <td>
+            @item.modeloDatos.NombrePaciente
+        </td>
+        <td>
+            @item.modeloDatos.NombreResponsable
+        </td>
+        <td>
+            @item.modeloDatos.Edad
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.modeloDatos.Sexo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.modeloExamen.Fc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.modeloExamen.Ta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.modeloMotivos.Alergias)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.modeloTrauma.Nivel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.modeloTrauma.Posicion)
+        </td>
+
+@*        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>*@
+    </tr>
+}
+
+</table>
+    </div>
+
+<head>
+<script type="text/javascript">
+function ShowCurrentTime() {
+var dt = new Date();
+document.getElementById("lblTime").innerHTML = dt.toLocaleTimeString();
+setTimeout("ShowCurrentTime()", 1000); // Here 1000(milliseconds) means one 1 Sec
+}
+</script>
+</head>
+<body onload="ShowCurrentTime()">
+<div style="float:right; position:absolute; right:200px; top:100px">
+<label id="lblTime" style=" font-weight:bold"></label>
+</div>
+</body>

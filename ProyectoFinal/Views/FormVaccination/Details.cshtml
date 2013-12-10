@@ -1,0 +1,50 @@
+﻿@model ProyectoFinal.Models.FormVaccinations
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>FormVaccinations</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Vacuna)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Vacuna)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.OtraVacuna)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OtraVacuna)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FechaInicio)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FechaInicio)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FechaSiguiente)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FechaSiguiente)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PatientModel.Nombre)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PatientModel.Nombre)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

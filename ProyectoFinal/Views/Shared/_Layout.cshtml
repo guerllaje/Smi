@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title - Sistema Medico Integrado</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+    </head>
+    <body>
+        @if (Request.IsAuthenticated){
+        <header>
+                <section id="cabecera">
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p class="site-title">@Html.ActionLink("SMI", "Index", "Home")
+                        <img src="~/Images/heart.png" width="22" height="22" />
+                        <img src="~/Images/virus.png" width="22" height="22" />
+                        <img src="~/Images/blood pressure.png" width="22" height="22" />
+                        <img src="~/Images/iv bag.png" width="22" height="22" />
+                        <img src="~/Images/bone.png" width="22" height="22" />
+                        <img src="~/Images/surgeon.png" width="22" height="22" />
+                        <img src="~/Images/ambulance car.png" width="22" height="22" />
+                    </p>
+                </div>
+                <div>
+                    <section id="login">
+                        @Html.Partial("_LoginPartial")
+                    </section>
+                </div>
+                    <nav>
+                        <ul id="menu">
+                            <li>
+                                <a href="~/Home/EmergencyRoom"><img src="~/Images/ambulance car.png" width="15" height="15" /></a>@Html.ActionLink("Sala de Emergencias", "EmergencyRoom", "Home") |
+                                <a href="~/Patients/SearchPatients"><img src="~/Images/lupa.png" width="15" height="15" /></a>@Html.ActionLink("Buscar Pacientes", "SearchPatients", "Patients") | 
+                                <a href="~/Patients/Create"><img src="~/Images/prescription.png" width="15" height="15" /></a>@Html.ActionLink("Crear Paciente", "Create", "Patients") 
+                            </li>
+                        </ul>
+                    </nav> 
+            </div>
+                </section>
+        </header>
+        }
+        <div id="body">
+            @RenderSection("featured", required: false)
+            <section class="content-wrapper main-content clear-fix">
+                @RenderBody()                                 
+            </section>
+        </div>
+        <footer>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p>&copy; @DateTime.Now.Year - Sistema Medico Integrado</p>
+                </div>
+            </div>
+        </footer>
+
+        @Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required: false)
+    </body>
+</html>

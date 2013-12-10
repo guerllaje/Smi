@@ -1,0 +1,125 @@
+﻿@model ProyectoFinal.Models.PatientModel
+
+@{
+    ViewBag.Title = "Perfil del paciente";
+}
+<!DOCTYPE html>
+    <meta name="viewport" content="width=device-width" />
+        <div>
+            <h2><a href="~/Patients/SearchPatients"><img src="~/Images/back-icon.png" width="26" height="19" /></a>@Html.DisplayFor(model => model.Nombre) @Html.DisplayFor(model => model.Apellido)</h2>
+        </div>
+        <div id="detailInformacion">
+            @Html.Label("Información")             
+        </div>
+@*        <div id="detailEdit">
+            @Html.ActionLink("Editar", "Edit", new { id = Model.Id })
+        </div>*@
+<section id="detailForm">
+    <fieldset>
+        <legend>PatientModel</legend>
+
+        <div class="display-label">
+            <p><b>@Html.DisplayName("Cedula:")</b> @Html.DisplayFor(model => model.Cedula)</p>
+        </div>
+
+        <div class="display-label">
+            <p><b>@Html.DisplayName("Fecha de nacimiento:")</b> @Html.DisplayFor(model => model.FechaNacimiento)</p>
+        </div>
+
+        <div class="display-label">
+            <p><b>@Html.DisplayName("Edad:")</b> @Html.DisplayFor(model => model.Edad)</p>
+        </div>
+
+        <div class="display-label">
+            <p><b>@Html.DisplayName("Sexo:")</b> @Html.DisplayFor(model => model.Sexo)</p>
+        </div>
+
+        <div class="display-label">
+            <p><b>@Html.DisplayName("Tipo de Sangre:")</b> @Html.DisplayFor(model => model.TipoSangre)</p>
+        </div>
+
+        <div class="display-label">
+            <p><b>@Html.DisplayName("Seguro Medico:")</b> @Html.DisplayFor(model => model.SeguroMedico)</p>
+        </div>
+
+        <div class="display-label">
+            <p><b>@Html.DisplayName("Afiliado No").:</b> @Html.DisplayFor(model => model.NumeroSeguroMedico)</p>
+        </div>
+
+        <div class="display-label">
+            <p><b>@Html.DisplayName("NSS:")</b> @Html.DisplayFor(model => model.NumeroSeguroSocial)</p>
+        </div>
+
+        <div class="display-label">
+            <p><b>@Html.DisplayName("Religión:")</b> @Html.DisplayFor(model => model.Religion)</p>
+        </div>
+
+       
+        <text>@Html.DisplayName("Creado/Modificado por:") @Html.DisplayFor(model => model.CreadoPor)</text>
+
+        (@Html.ActionLink("Editar", "Edit", new { id = Model.Id }))
+        
+    </fieldset>
+</section>
+
+        <div id="detailBannerForm">
+            @Html.Label("Formularios medicos") 
+        </div>
+<section id="detailInfoForm">
+    <fieldset>
+        <legend>Formularios</legend>
+
+@*        <div>
+            @Html.Label("Formularios medicos:")
+        </div>*@
+
+        <div>
+                <img src="~/Images/blood pressure.png" width="22" height="22" />@Html.ActionLink("Presión Sanguinea", "Create", "FormBlood", new { id = Model.Id }, null)
+        </div>
+        <div>
+                <img src="~/Images/heart.png" width="22" height="22" />@Html.ActionLink("Signos Vitales", "Create", "VitalSign", new { id = Model.Id }, null)
+        </div>
+        <div>
+                <img src="~/Images/syringe.png" width="22" height="22" />@Html.ActionLink("Vacunas", "Create", "FormVaccination", new { id = Model.Id}, null)
+        </div>
+        <div>
+                <img src="~/Images/iv bag.png" width="22" height="22" />@Html.ActionLink("Medicamentos", "SearchPatients", "Patients")
+        </div>
+        <div>
+                <img src="~/Images/bone.png" width="22" height="22" />@Html.ActionLink("Fracturas", "SearchPatients", "Patients")
+        </div>
+        <div>
+                <img src="~/Images/surgeon.png" width="22" height="22" />@Html.ActionLink("Cirugias", "SearchPatients", "Patients")
+        </div>
+
+    </fieldset>
+</section>
+@*    <nav>
+        <section id="menuForm">
+
+            @Ajax.ActionLink("Presión Sanguinea", "_FormPresionSanguinea", "Patients", new {id=Model.Id}, null, new AjaxOptions { UpdateTargetId = "DisplayPartialView" })
+             
+            <img src="~/Images/blood pressure.png" width="15" height="15" />@Html.ActionLink("Presión Sanguinea","FormPresionSanguinea", "Patients", new {id=Model.Id}, null) | 
+            <img src="~/Images/heart.png" width="15" height="15" />@Html.ActionLink("Signos Vitales", "FormSignosVitales", "Patients", new {id=Model.Id},null) |
+            <img src="~/Images/virus.png" width="15" height="15" />@Html.ActionLink("Control de Virus", "Create", "Patients") |
+            <img src="~/Images/bone.png" width="15" height="15" />@Html.ActionLink("Fracturas", "Formularios", "Patients") | 
+            <img src="~/Images/surgeon.png" width="15" height="15" />@Html.ActionLink("Cirugias", "Formularios", "Patients") | 
+            <img src="~/Images/iv bag.png" width="15" height="15" />@Html.ActionLink("Medicamentos", "Formularios", "Patients") 
+        </section>
+    </nav>*@
+<section>
+    <div id="DisplayPartialView">
+        @Html.Action("FormPresionSanguinea", "Patients")
+    </div>
+    
+    <div id="DisplayPartialView">
+        @Html.Action("FormSignosVitales", "Patients")
+    </div>
+    
+    <div id="DisplayPartialView">
+        @Html.Action("FormVacunas", "Patients")
+    </div>
+
+</section>
+
+<script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")" type="text/javascript"></script>

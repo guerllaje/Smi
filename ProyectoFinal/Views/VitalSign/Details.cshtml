@@ -1,0 +1,57 @@
+﻿@model ProyectoFinal.Models.FormVitalSigns
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>FormVitalSigns</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Peso)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Peso)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Temperatura)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Temperatura)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Pulso)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Pulso)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PresionSanguinea)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PresionSanguinea)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Respiracion)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Respiracion)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Dolor)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Dolor)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

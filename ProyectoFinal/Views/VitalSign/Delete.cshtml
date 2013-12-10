@@ -1,0 +1,61 @@
+﻿@model ProyectoFinal.Models.FormVitalSigns
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>FormVitalSigns</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Peso)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Peso)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Temperatura)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Temperatura)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Pulso)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Pulso)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PresionSanguinea)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PresionSanguinea)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Respiracion)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Respiracion)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Dolor)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Dolor)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

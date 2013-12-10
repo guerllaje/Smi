@@ -1,0 +1,87 @@
+﻿@model ProyectoFinal.Models.FormVitalSigns
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>FormVitalSigns</legend>
+
+        @Html.HiddenFor(model => model.PatientModelId)
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Fecha)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Fecha, new { @class = "date", type = "date" })
+            @Html.ValidationMessageFor(model => model.Fecha)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Peso)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Peso)
+            @Html.ValidationMessageFor(model => model.Peso)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Temperatura)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Temperatura)
+            @Html.ValidationMessageFor(model => model.Temperatura)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Pulso)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Pulso)
+            @Html.ValidationMessageFor(model => model.Pulso)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PresionSanguinea)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PresionSanguinea)
+            @Html.ValidationMessageFor(model => model.PresionSanguinea)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Respiracion)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Respiracion)
+            @Html.ValidationMessageFor(model => model.Respiracion)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Dolor)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Dolor)
+            @Html.ValidationMessageFor(model => model.Dolor)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

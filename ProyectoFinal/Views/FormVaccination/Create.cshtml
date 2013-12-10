@@ -1,0 +1,62 @@
+﻿@model ProyectoFinal.Models.FormVaccinations
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>FormVaccinations</legend>
+
+        @Html.HiddenFor(model => model.CreadoPor)
+
+        <div class="editor-label">
+            @Html.Label("Vacuna")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Vacuna)
+            @Html.ValidationMessageFor(model => model.Vacuna)
+        </div>
+
+        <div class="editor-label">
+            @Html.Label("Otra")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.OtraVacuna)
+            @Html.ValidationMessageFor(model => model.OtraVacuna)
+        </div>
+
+        <div class="editor-label">
+            @Html.Label("Fecha de la primera vacuna")
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.FechaInicio, new { @class = "date", type = "date" })
+            @Html.ValidationMessageFor(model => model.FechaInicio)
+        </div>
+
+        <div class="editor-label">
+            @Html.Label("Fecha de la próxima vacuna")
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.FechaSiguiente, new { @class = "date", type = "date" })
+            @Html.ValidationMessageFor(model => model.FechaSiguiente)
+        </div>
+
+        <p>
+            <input type="submit" value="Crear" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

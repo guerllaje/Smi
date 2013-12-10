@@ -1,0 +1,116 @@
+﻿@model ProyectoFinal.Models.PatientModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>PatientModel</legend>
+
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.CreadoPor)
+
+        <div class="editor-label">
+            @Html.Label("Nombre:")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Nombre)
+            @Html.ValidationMessageFor(model => model.Nombre)
+        </div>
+
+        <div class="editor-label">
+            @Html.Label("Apellido:")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Apellido)
+            @Html.ValidationMessageFor(model => model.Apellido)
+        </div>
+
+        <div class="editor-label">
+            @Html.Label("Cédula:")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Cedula)
+            @Html.ValidationMessageFor(model => model.Cedula)
+        </div>
+
+        <div class="editor-label">
+            @Html.Label("Fecha de Nacimiento:")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FechaNacimiento)
+            @Html.TextBoxFor(model => model.FechaNacimiento, new { @class = "date", type = "date" })
+        </div>
+
+        <div class="editor-label">
+            @Html.Label("Edad:")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Edad)
+            @Html.ValidationMessageFor(model => model.Edad)
+        </div>
+
+        <div class="editor-label">
+            @Html.Label("Sexo:")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.Sexo, (IEnumerable<SelectListItem>) ViewBag.sexo, new{style="width:312px; padding:5px;border: 1px solid #e2e2e2;"})
+        </div>
+
+        <div class="editor-label">
+            @Html.Label("Tipo de Sangre:")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.TipoSangre, (IEnumerable<SelectListItem>) ViewBag.sangre, new{style="width:312px; padding:5px;border: 1px solid #e2e2e2;"})
+        </div>
+
+        <div class="editor-label">
+            @Html.Label("Seguro Medico:")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.SeguroMedico, (IEnumerable<SelectListItem>) ViewBag.seguro, new{style="width:312px; padding:5px;border: 1px solid #e2e2e2;"})
+        </div>
+
+        <div class="editor-label">
+            @Html.Label("# Seguro Medico:")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NumeroSeguroMedico)
+            @Html.ValidationMessageFor(model => model.NumeroSeguroMedico)
+        </div>
+
+        <div class="editor-label">
+            @Html.Label("NSS:")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NumeroSeguroSocial)
+            @Html.ValidationMessageFor(model => model.NumeroSeguroSocial)
+        </div>
+
+        <div class="editor-label">
+            @Html.Label("Religión:")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Religion)
+            @Html.ValidationMessageFor(model => model.Religion)
+        </div>
+
+        <p>
+            <input type="submit" value="Guardar" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

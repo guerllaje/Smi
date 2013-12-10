@@ -1,0 +1,43 @@
+﻿@model ProyectoFinal.Models.FormBloodPressure
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>FormBloodPressure</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Fecha)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Fecha)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Sistolica)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Sistolica)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Diastolica)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Diastolica)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RitmoCardiaco)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RitmoCardiaco)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

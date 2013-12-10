@@ -1,0 +1,59 @@
+﻿@model IEnumerable<ProyectoFinal.Models.FormVaccinations>
+
+@{
+    ViewBag.Title = "Historial de Vacunas";
+}
+<div id="detailFormName">
+@Html.Label("Historial de Vacunas")
+</div>
+@*<p>
+    @Html.ActionLink("Nueva entrada", "Create", "FormBlood")
+</p>*@
+<table>
+    <tr>
+        <th>
+            <img src="~/Images/syringe.png" width="18" height="18" />
+        </th>
+        <th>
+            @Html.Label("Creado por")
+        </th>
+        <th>
+            @Html.Label("Vacuna")
+        </th>
+        <th>
+            @Html.Label("Otra")
+        </th>
+        <th>
+            @Html.Label("Fecha de la primera vacuna")
+        </th>
+        <th>
+            @Html.Label("Fecha de la próxima vacuna")
+        </th>
+        @*<th></th>*@
+    </tr>
+
+@foreach (var item in Model) 
+{
+    <tr>
+        <td>
+            @Html.ActionLink("Editar", "Edit", "FormVaccination", new { id=item.Id },null) |
+            @Html.ActionLink("Eliminar", "Delete", "FormVaccination", new { id=item.Id },null)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreadoPor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Vacuna)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OtraVacuna)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaInicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaSiguiente)
+        </td>
+    </tr>
+}
+</table>

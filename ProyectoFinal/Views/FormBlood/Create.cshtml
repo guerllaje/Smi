@@ -1,0 +1,62 @@
+﻿@model ProyectoFinal.Models.FormBloodPressure
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>FormBloodPressure</legend>
+
+        @Html.HiddenFor(model => model.CreadoPor)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Fecha)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Fecha, new { @class = "date", type = "date" })
+            @Html.ValidationMessageFor(model => model.Fecha)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Sistolica)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Sistolica)
+            @Html.ValidationMessageFor(model => model.Sistolica)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Diastolica)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Diastolica)
+            @Html.ValidationMessageFor(model => model.Diastolica)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RitmoCardiaco)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.RitmoCardiaco)
+            @Html.ValidationMessageFor(model => model.RitmoCardiaco)
+        </div>
+
+        <p>
+            <input type="submit" value="Crear" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
