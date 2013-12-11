@@ -9,7 +9,7 @@ using ProyectoFinal.Models;
 
 namespace ProyectoFinal.Controllers
 {
-    [Authorize]
+   // [Authorize]
     public class FormBloodController : Controller
     {
         private PatientModelDBContext db = new PatientModelDBContext();

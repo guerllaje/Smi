@@ -9,7 +9,7 @@
         @Scripts.Render("~/bundles/modernizr")
     </head>
     <body>
-        @if (Request.IsAuthenticated){
+        @*@if (Request.IsAuthenticated){*@
         <header>
                 <section id="cabecera">
             <div class="content-wrapper">
@@ -41,7 +41,7 @@
             </div>
                 </section>
         </header>
-        }
+        @*}*@
         <div id="body">
             @RenderSection("featured", required: false)
             <section class="content-wrapper main-content clear-fix">

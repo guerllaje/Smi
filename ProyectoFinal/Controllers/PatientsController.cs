@@ -11,7 +11,7 @@ using ProyectoFinal.Models;
 
 namespace ProyectoFinal.Controllers
 {
-    [Authorize]
+   // [Authorize]
     public class PatientsController : Controller
     {
         private PatientModelDBContext db = new PatientModelDBContext();
