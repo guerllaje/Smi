@@ -12,7 +12,7 @@ using Newtonsoft.Json;
 
 namespace ProyectoFinal.Controllers
 {
-    [Authorize]
+ //   [Authorize]
     public class HomeController : Controller
     {
         private PatientModelDBContext db = new PatientModelDBContext();
